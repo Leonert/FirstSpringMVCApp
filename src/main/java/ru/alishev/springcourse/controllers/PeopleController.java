@@ -19,7 +19,7 @@ public class PeopleController {
 
     @GetMapping("")
     public String index(Model model) {
-        model.addAttribute("index", peopleDAO.index());
+        model.addAttribute("people", peopleDAO.index());
         return "people/index";
     }
 
@@ -28,4 +28,11 @@ public class PeopleController {
         model.addAttribute("person", peopleDAO.show(id));
         return "people/show";
     }
+
+    @GetMapping("/new")
+    public String getPersonAddingForm(Model model) {
+        return "people/addingForm";
+    }
+
+
 }
