@@ -1,8 +1,24 @@
 package ru.alishev.springcourse.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Person {
-    private String name;
     private int id;
+    @NotEmpty(message = "Name shouldn`t be empty")
+    @Size(min = 2, max = 30, message = "should be from 0 to 30 chars")
+    private String name;
+    @Min(value = 0, message = "should be gr th 0")
+    private int age;
+    @NotEmpty
+    @Email
+    private String email;
+
+    public Person() {
+
+    }
 
     public String getName() {
         return name;
@@ -20,8 +36,26 @@ public class Person {
         this.id = id;
     }
 
-    public Person(String name, int id) {
+    public Person(String name, int id, int age, String email) {
         this.name = name;
         this.id = id;
+        this.age = age;
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

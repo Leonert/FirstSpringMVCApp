@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<b th:text="${person.getInfo()}"></b>
+<b th:text="${map.get(1)}"></b>
+<div th:object="${person}">
+    <b th:text="*{getName()}"></b>
+    <a th:href="@{www.google.com/{id}(id=*{getAge()})}">qqq</a>
+</div>
+</body>
+</html>
